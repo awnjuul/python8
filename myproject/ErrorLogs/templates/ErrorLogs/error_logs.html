@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Logs</title>
+</head>
+<body>
+    <h1>ErrorLogs</h1>
+    <p style="font-style: italic; color: blue;">Третяк А. Р., КН-20001б</p>
+
+    <h2>Errors</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Error Code</th>
+                <th>Description</th>
+                <th>Reception Date</th>
+                <th>Error Level</th>
+                <th>Category</th>
+                <th>Source</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for error in errors %}
+                <tr>
+                    <td>{{ error.error_code }}</td>
+                    <td>{{ error.description }}</td>
+                    <td>{{ error.reception_date }}</td>
+                    <td>{{ error.error_level }}</td>
+                    <td>{{ error.category }}</td>
+                    <td>{{ error.source }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Programmers</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Programmer Code</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for programmer in programmers %}
+                <tr>
+                    <td>{{ programmer.programmer_code }}</td>
+                    <td>{{ programmer.name }}</td>
+                    <td>{{ programmer.phone_number }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Error Fixes</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Fix Code</th>
+                <th>Error Code</th>
+                <th>Start Date</th>
+                <th>Fix Duration</th>
+                <th>Programmer Code</th>
+                <th>Cost per Day</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for error_fix in error_fixes %}
+                <tr>
+                    <td>{{ error_fix.fix_code }}</td>
+                    <td>{{ error_fix.error.error_code }}</td>
+                    <td>{{ error_fix.start_date }}</td>
+                    <td>{{ error_fix.fix_duration }}</td>
+                    <td>{{ error_fix.programmer.programmer_code }}</td>
+                    <td>{{ error_fix.cost_per_day }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
